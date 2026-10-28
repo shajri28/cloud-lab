@@ -37,7 +37,7 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_subnet" "public" {
-  count             = 2
+  count             = 3
   vpc_id            = aws_vpc.main.id
   cidr_block        = cidrsubnet(aws_vpc.main.cidr_block, 8, count.index)
   availability_zone = data.aws_availability_zones.available.names[count.index]
